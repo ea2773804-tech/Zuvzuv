@@ -1,0 +1,19 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/package.json b/package.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..07e9307048e13f4775a4dfc2ad19c5862390a0b4
+--- /dev/null
++++ b/package.json
+@@ -0,0 +1,9 @@
++{
++  "name": "zuvzuv",
++  "version": "1.0.0",
++  "description": "Site de conversas privadas com login local, chats, mensagens e envio de mídia.",
++  "private": true,
++  "scripts": {
++    "check": "node --check app.js"
++  }
++}
+ 
+EOF
+)
