@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Zuvzuv é um site de conversas privadas com login local, envio de mensagens e compartilhamento de imagens e vídeos."
+    />
+    <title>Zuvzuv | Conversas privadas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" data-screen="auth">
+      <section class="auth-view" aria-labelledby="auth-title">
+        <div class="brand-card">
+          <div class="brand-mark" aria-hidden="true">Z</div>
+          <p class="eyebrow">Zuvzuv Chat</p>
+          <h1 id="auth-title">Converse, envie mídia e organize chats privados.</h1>
+          <p>
+            Entre com uma conta local, crie conversas privadas, envie textos,
+            imagens e vídeos direto do seu dispositivo. Os dados ficam salvos no
+            navegador para demonstração.
+          </p>
+        </div>
+
+        <form class="auth-card" id="auth-form">
+          <div>
+            <p class="eyebrow">Acesso</p>
+            <h2 id="auth-mode-title">Entrar no Zuvzuv</h2>
+          </div>
+
+          <label>
+            Nome de usuário
+            <input
+              id="username"
+              name="username"
+              type="text"
+              autocomplete="username"
+              minlength="3"
+              placeholder="ex: ana_silva"
+              required
+            />
+          </label>
+
+          <label>
+            Senha
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              minlength="4"
+              placeholder="Digite sua senha"
+              required
+            />
+          </label>
+
+          <p class="form-message" id="auth-message" role="status"></p>
+
+          <button class="primary-button" type="submit" id="auth-submit">Entrar</button>
+          <button class="ghost-button" type="button" id="toggle-auth">
+            Criar uma nova conta
+          </button>
+        </form>
+      </section>
+
+      <section class="chat-view" aria-label="Aplicativo de conversas">
+        <aside class="sidebar" aria-label="Lista de conversas">
+          <header class="sidebar-header">
+            <div>
+              <p class="eyebrow">Online agora</p>
+              <h2 id="active-user-name">Zuvzuv</h2>
+            </div>
+            <button class="icon-button" type="button" id="logout-button" title="Sair">
+              ↩
+            </button>
+          </header>
+
+          <div class="quick-actions">
+            <button class="primary-button" type="button" id="new-chat-button">
+              + Nova conversa privada
+            </button>
+            <button class="ghost-button" type="button" id="settings-button">
+              ⚙ Configurações
+            </button>
+          </div>
+
+          <label class="search-box">
+            Buscar chat
+            <input id="chat-search" type="search" placeholder="Pesquisar contato..." />
+          </label>
+
+          <div class="chat-list" id="chat-list" role="list"></div>
+        </aside>
+
+        <section class="conversation" aria-label="Conversa selecionada">
+          <header class="conversation-header">
+            <div class="avatar" id="chat-avatar" aria-hidden="true">?</div>
+            <div>
+              <p class="eyebrow">Chat privado</p>
+              <h2 id="chat-title">Selecione ou crie uma conversa</h2>
+              <p id="chat-subtitle">Mensagens protegidas neste navegador.</p>
+            </div>
+          </header>
+
+          <div class="messages" id="messages" aria-live="polite"></div>
+
+          <form class="composer" id="message-form">
+            <input id="media-input" type="file" accept="image/*,video/*" hidden />
+            <button class="icon-button" type="button" id="media-button" title="Selecionar imagem ou vídeo">
+              📎
+            </button>
+            <div class="composer-field">
+              <div class="media-preview" id="media-preview" hidden></div>
+              <textarea
+                id="message-input"
+                rows="1"
+                placeholder="Digite uma mensagem..."
+                aria-label="Digite uma mensagem"
+              ></textarea>
+            </div>
+            <button class="primary-button send-button" type="submit">Enviar</button>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="new-chat-dialog" class="modal">
+      <form method="dialog" id="new-chat-form">
+        <h2>Nova conversa privada</h2>
+        <p>Digite o nome do contato para abrir um chat individual.</p>
+        <label>
+          Nome do contato
+          <input id="contact-name" type="text" minlength="2" placeholder="ex: Bruno" required />
+        </label>
+        <div class="modal-actions">
+          <button class="ghost-button" value="cancel" type="button" data-close-dialog>
+            Cancelar
+          </button>
+          <button class="primary-button" value="default" type="submit">Criar chat</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="settings-dialog" class="modal">
+      <form method="dialog" id="settings-form">
+        <h2>Configurações</h2>
+        <label>
+          Nome exibido
+          <input id="display-name" type="text" minlength="2" required />
+        </label>
+        <label>
+          Tema
+          <select id="theme-select">
+            <option value="dark">Escuro</option>
+            <option value="light">Claro</option>
+          </select>
+        </label>
+        <label>
+          Cor de destaque
+          <input id="accent-color" type="color" value="#7c3aed" />
+        </label>
+        <label class="checkbox-label">
+          <input id="notification-toggle" type="checkbox" />
+          Mostrar aviso quando uma mensagem for enviada
+        </label>
+        <div class="modal-actions split-actions">
+          <button class="danger-button" type="button" id="clear-chat-button">Limpar chat atual</button>
+          <div>
+            <button class="ghost-button" type="button" data-close-dialog>Cancelar</button>
+            <button class="primary-button" type="submit">Salvar</button>
+          </div>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
