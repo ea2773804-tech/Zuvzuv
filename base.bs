@@ -1,2 +1,0 @@
-Botão "iniciar" 
-quando clicar iniciar:  site
