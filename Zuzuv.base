@@ -1,1 +1,3 @@
-button ("function") = ("mudar cor de fundo") fundo padrao claro ao clicar button fundo muda para preto end branco false
+print("Hello usuario!") end
+pritn ("bem vindo ao Zuvzuv") end
+button ("post") = clica no button da para selecionar um dos arquivos do dispositivo para "postar" end
