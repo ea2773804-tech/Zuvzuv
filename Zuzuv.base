@@ -1,1 +1,1 @@
-"interface" ("modo" = escuro) = "menu-preto"
+button ("function") = ("mudar cor de fundo") fundo padrao claro ao clicar button fundo muda para preto end branco false
