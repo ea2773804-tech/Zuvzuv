@@ -1,1 +1,5 @@
-print("olá")
+nome = "usuario"
+idade = usuario
+menssagem = "bem-vindo"
+print ("pode-entrar")
+end
